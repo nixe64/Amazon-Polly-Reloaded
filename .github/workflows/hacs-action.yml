@@ -1,5 +1,6 @@
 name: "HACS Action"
 description: "Repository validation action for HACS"
+on: [push]
 branding:
   icon: "terminal"
   color: "gray-dark"
