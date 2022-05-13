@@ -3,6 +3,6 @@ on: [push]
 
 jobs:
   hacs-validate:
-    uses: hacs/action@main
+    uses: hacs/action/.github/workflows/action@main
     with:
       category: integration
