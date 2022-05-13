@@ -1,8 +1,9 @@
 name: HACS Action
-on:[workflow_call]
+on: [workflow_call]
 
 jobs:
   workflow:
+    runs-on: ubuntu-latest
     steps:
     - shell: bash
       name: cleanup
