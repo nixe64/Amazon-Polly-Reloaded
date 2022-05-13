@@ -12,3 +12,5 @@ This integration can be downloaded and installed through the [Home Assistant Com
 
 # Configuration
 All configuration variables can be found in the documentation of original [Amazon Polly Integration](https://www.home-assistant.io/integrations/amazon_polly/) of [Home Assistant](https://www.home-assistant.io/).
+
+Kleine Änderung für den Test des HACS Workflows
