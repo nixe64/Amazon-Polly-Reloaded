@@ -1,0 +1,51 @@
+name: 'Home Assistant helper: Codenotary'
+description: 'GitHub action helper: Codenotary'
+inputs:
+  source:
+    description: Source for Codenotary signing
+    required: true
+  version:
+    description: Codenotary CAS version
+    required: false
+    default: "v1.0.2"
+  token:
+    description: Codenotary CAS API token
+    required: true
+  signer:
+    description: CAS Signer ID/Email
+    required: false
+    default: "notary@home-assistant.io"
+  asset:
+    description: CAS Asset name
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - uses: home-assistant/actions/helpers/cas@master
+      with:
+        version: ${{ inputs.version }}
+
+    - shell: bash
+      name: Codenotary Open Source Attestation Service
+      run: |
+        cas_cli=()
+        if [[ -n "${{ inputs.asset }}" ]]; then
+          cas_cli+=("--name" "${{ inputs.asset }}")
+        fi
+        
+        input_source=()
+        if [[ "${{ inputs.source }}" =~ ^hash ]]; then
+          raw_input="${{ inputs.source }}"
+          input_source+=("--hash" "${raw_input#*//}")
+        else
+          input_source+=("${{ inputs.source }}")
+        fi
+
+        if ! cas authenticate --silent --signerID ${{ inputs.signer }} "${input_source[@]}"; then
+          CAS_API_KEY="${{ inputs.token }}" cas login
+          CAS_API_KEY="${{ inputs.token }}" cas notarize --ci-attr "${cas_cli[@]}" "${input_source[@]}"
+        else
+          echo "Target is already verified."
+        fi
