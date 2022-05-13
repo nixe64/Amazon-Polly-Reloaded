@@ -89,3 +89,12 @@ runs:
       name: cleanup
       run: |
         bash "${{ github.action_path }}/helpers/cleanup"
+        
+jobs:
+  hacs:
+    name: HACS Action
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v2"
+      - name: HACS Action
+        uses: "composite"
