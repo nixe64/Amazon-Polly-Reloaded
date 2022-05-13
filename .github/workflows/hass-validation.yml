@@ -3,6 +3,6 @@ on: [push]
 
 jobs:
   hacs-validate:
-    uses: ./.github/workflows/_hacs-action.yml
+    uses: ./.github/workflows/hacs-action.yml
     with:
       category: integration
