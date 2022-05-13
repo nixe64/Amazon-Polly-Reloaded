@@ -28,15 +28,15 @@ jobs:
     - shell: bash
       name: cleanup
       run: |
-        bash "${{ github.action_path }}/helpers/cleanup"
+        bash "${GITHUB_ACTION_PATH}/helpers/cleanup"
 
     - shell: bash
       id: init
       run: |
         echo "::group::init"
-        mkdir -p "${{ github.action_path }}/data"
+        mkdir -p "${GITHUB_ACTION_PATH}/data"
 
-        git clone --quiet --depth 1 https://github.com/hacs/integration.git "${{ github.action_path }}/hacs" > /dev/null
+        git clone --quiet --depth 1 https://github.com/hacs/integration.git "${GITHUB_ACTION_PATH}/hacs" > /dev/null
 
         if [ -n "${{ github.event.inputs.repository }}" ]; then
           repository="${{ github.event.inputs.repository }}"
@@ -53,18 +53,18 @@ jobs:
         fi
 
         if [ "${{ github.repository }}" != "$repository" ]; then
-          path="${{ github.action_path }}/repository"
+          path="${GITHUB_ACTION_PATH}/repository"
           rm -rf "$path"
           git clone --quiet --depth 1 "https://github.com/$repository.git" "$path" > /dev/null
         else
           path="${{ github.workspace }}"
         fi
 
-        bash "${{ github.action_path }}/helpers/input" repository "$repository"
-        bash "${{ github.action_path }}/helpers/input" category "$category"
+        bash "${GITHUB_ACTION_PATH}/helpers/input" repository "$repository"
+        bash "${GITHUB_ACTION_PATH}/helpers/input" category "$category"
 
-        bash "${{ github.action_path }}/helpers/info" "${{ github.token }}" "$repository" "${{ github.action_path }}" > /dev/null
-        bash "${{ github.action_path }}/helpers/topics" "${{ github.token }}" "$repository" "${{ github.action_path }}" > /dev/null
+        bash "${GITHUB_ACTION_PATH}/helpers/info" "${{ github.token }}" "$repository" "${{ github.action_path }}" > /dev/null
+        bash "${GITHUB_ACTION_PATH}/helpers/topics" "${{ github.token }}" "$repository" "${{ github.action_path }}" > /dev/null
 
         echo "::set-output name=repository::$repository"
         echo "::set-output name=category::$category"
@@ -72,23 +72,23 @@ jobs:
 
         echo "$repository" > "${{ github.action_path }}/data/repository"
         echo "${{ github.repository }}" > "${{ github.action_path }}/data/action_repository"
-        echo "$category" > "${{ github.action_path }}/data/category"
-        echo "$path" > "${{ github.action_path }}/data/path"
-        echo "${{ inputs.ignore }}" > "${{ github.action_path }}/data/ignore"
-        echo "${{ github.token }}" > "${{ github.action_path }}/data/token"
+        echo "$category" > "${GITHUB_ACTION_PATH}/data/category"
+        echo "$path" > "${GITHUB_ACTION_PATH}/data/path"
+        echo "${{ inputs.ignore }}" > "${GITHUB_ACTION_PATH}/data/ignore"
+        echo "${{ github.token }}" > "${GITHUB_ACTION_PATH}/data/token"
 
         echo "::endgroup::"
 
     - shell: bash
       name: run the action
       run: |
-        bash "${{ github.action_path }}/run"
+        bash "${GITHUB_ACTION_PATH}/run"
 
     - shell: bash
       name: wrapup
-      run: bash "${{ github.action_path }}/helpers/wrapup" "${{ github.action_path }}"
+      run: bash "${GITHUB_ACTION_PATH}/helpers/wrapup" "${GITHUB_ACTION_PATH}"
 
     - shell: bash
       name: cleanup
       run: |
-        bash "${{ github.action_path }}/helpers/cleanup"
+        bash "${GITHUB_ACTION_PATH}/helpers/cleanup"
