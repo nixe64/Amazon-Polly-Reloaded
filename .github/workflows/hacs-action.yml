@@ -1,28 +1,11 @@
-name: "HACS Action"
-description: "Repository validation action for HACS"
-branding:
-  icon: "terminal"
-  color: "gray-dark"
-inputs:
-  ignore:
-    description: "A space seperated list of ignored checks, for valid entries see README.md"
-    required: false
-    default: ""
-  category:
-    description: "The category of repository"
-    required: true
-  repository:
-    description: "The full name of repository"
-    required: false
-  comment:
-    description: "Post a comment to the PR with the result of the checks"
-    required: false
-    default: "true"
-runs:
-  using: "composite"
-  steps:
+name: HACS Action
+on:[workflow_call]
+
+jobs:
+  workflow:
+    steps:
     - shell: bash
-      name: Clanup
+      name: cleanup
       run: |
         bash "${{ github.action_path }}/helpers/cleanup"
 
@@ -76,7 +59,7 @@ runs:
         echo "::endgroup::"
 
     - shell: bash
-      name: Run the action
+      name: run the action
       run: |
         bash "${{ github.action_path }}/run"
 
