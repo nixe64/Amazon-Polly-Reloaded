@@ -6,7 +6,7 @@ on:
         description: "A space seperated list of ignored checks, for valid entries see README.md"
         required: false
         default: ""
-        type: boolean
+        type: string
       category:
         description: "The category of repository"
         required: true
