@@ -1,22 +1,25 @@
 name: HACS Action
 on: 
   workflow_call:
-  
-inputs:
-  ignore:
-    description: "A space seperated list of ignored checks, for valid entries see README.md"
-    required: false
-    default: ""
-  category:
-    description: "The category of repository"
-    required: true
-  repository:
-    description: "The full name of repository"
-    required: false
-  comment:
-    description: "Post a comment to the PR with the result of the checks"
-    required: false
-    default: "true"
+    inputs:
+      ignore:
+        description: "A space seperated list of ignored checks, for valid entries see README.md"
+        required: false
+        default: ""
+        type: boolean
+      category:
+        description: "The category of repository"
+        required: true
+        type: string
+      repository:
+        description: "The full name of repository"
+        required: false
+        type: string
+      comment:
+        description: "Post a comment to the PR with the result of the checks"
+        required: false
+        default: true
+        type: boolean
 
 jobs:
   workflow:
