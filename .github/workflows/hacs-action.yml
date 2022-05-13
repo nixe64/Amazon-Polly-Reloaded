@@ -97,4 +97,4 @@ jobs:
     steps:
       - uses: "actions/checkout@v2"
       - name: HACS Action
-        uses: "composite"
+        uses: "hacs/action@main"
