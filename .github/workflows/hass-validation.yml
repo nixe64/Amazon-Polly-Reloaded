@@ -2,11 +2,10 @@ name: Home Assistant Validation
 on: [push]
 
 jobs:
-#  hacs/action z.Zeit nicht online 
-#  hacs:
-#    uses: hacs/action@21.12.1
-#    with:
-#      category: integration
+  hacs:
+    uses: andreas-nixdorf-de/actions/hacs-validate@master
+    with:
+      category: integration
   hassfest:
     runs-on: "ubuntu-latest"
     steps:
