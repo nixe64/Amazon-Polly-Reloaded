@@ -7,6 +7,5 @@
   "iot_class": "cloud_push",
   "loggers": ["boto3", "botocore", "s3transfer"],
   "version": "2022.5.1",
-  "issue_tracker": "https://github.com/andreas-nixdorf-de/amazon_polly/issues",
-  "more-info": "https://hacs.xyz/docs/publish/include#check-info"
+  "issue_tracker": "https://github.com/andreas-nixdorf-de/amazon_polly/issues"
 }
