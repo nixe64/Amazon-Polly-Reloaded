@@ -6,7 +6,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v2"
-      - uses: "andreas-nixdorf-de/hacs-validate/actions/hacs-validate@release/2022.5.3"
+      - uses: "andreas-nixdorf-de/hacs-validate/actions/hacs-validate@v2022.5.4"
         with:
           category: integration
   hassfest:
