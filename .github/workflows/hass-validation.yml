@@ -3,11 +3,11 @@ on: [push]
 
 jobs:
   hacs:
+    runs-on: "ubuntu-latest"
     steps:
-      runs-on: "ubuntu-latest"
-      uses: "andreas-nixdorf-de/actions/hacs-validate@master"
-      with:
-        category: integration
+      - uses: "andreas-nixdorf-de/actions/hacs-validate@master"
+        with:
+          category: integration
   hassfest:
     runs-on: "ubuntu-latest"
     steps:
