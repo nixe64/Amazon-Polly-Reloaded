@@ -5,10 +5,10 @@ jobs:
   hacs:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: "actions/checkout@v3"
-        with:
-          repository: "andreas-nixdorf-de/hacs-validate/actions/hacs-validate@v2022.5.4"
-      - uses: "andreas-nixdorf-de/hacs-validate/actions/hacs-validate@v2022.5.4"
+#      - uses: "actions/checkout@v3"
+#        with:
+#          repository: "andreas-nixdorf-de/hacs-validate/actions/hacs-validate@v2022.5.4"
+      - uses: "andreas-nixdorf-de/hacs-validate/actions/hacs-validate@master"
         with:
           category: integration
   hassfest:
