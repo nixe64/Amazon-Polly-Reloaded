@@ -1,0 +1,16 @@
+name: Home Assistant Validation
+on: [push]
+
+jobs:
+  hacs:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v3"
+      - uses: "nixe64/hacs-validate/actions/hacs-validate@master"
+        with:
+          category: integration
+  hassfest:
+    runs-on: "ubuntu-latest"
+    steps:
+        - uses: "actions/checkout@v2"
+        - uses: "home-assistant/actions/hassfest@master"  
