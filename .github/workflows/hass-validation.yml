@@ -7,8 +7,8 @@ jobs:
     steps:
       - uses: "actions/checkout@v3"
         with:
-          repository: "andreas-nixdorf-de/hacs-validate/actions/hacs-validate@master"
-      - uses: "andreas-nixdorf-de/hacs-validate/actions/hacs-validate@master"
+          repository: "andreas-nixdorf-de/hacs-validate/actions/hacs-validate@v2022.5.4"
+      - uses: "andreas-nixdorf-de/hacs-validate/actions/hacs-validate@v2022.5.4"
         with:
           category: integration
   hassfest:
