@@ -6,5 +6,6 @@
   "codeowners": [],
   "iot_class": "cloud_push",
   "loggers": ["boto3", "botocore", "s3transfer"],
-  "version": "2022.5.1"
+  "version": "2022.5.1",
+  "issue_tracker": "https://github.com/andreas-nixdorf-de/amazon_polly/issues"
 }
