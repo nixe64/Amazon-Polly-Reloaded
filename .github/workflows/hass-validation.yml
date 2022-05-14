@@ -3,9 +3,11 @@ on: [push]
 
 jobs:
   hacs:
-    uses: "andreas-nixdorf-de/.github/workflows/actions/hacs-validate@master"
-    with:
-      category: integration
+    steps:
+      runs-on: "ubuntu-latest"
+      uses: "andreas-nixdorf-de/actions/hacs-validate@master"
+      with:
+        category: integration
   hassfest:
     runs-on: "ubuntu-latest"
     steps:
