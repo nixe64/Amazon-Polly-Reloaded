@@ -6,6 +6,7 @@ from typing import Final
 CONF_REGION: Final = "region_name"
 CONF_ACCESS_KEY_ID: Final = "aws_access_key_id"
 CONF_SECRET_ACCESS_KEY: Final = "aws_secret_access_key"
+DOMAIN: Final = "amazon_polly"
 
 DEFAULT_REGION: Final = "us-east-1"
 SUPPORTED_REGIONS: Final[list[str]] = [
