@@ -74,6 +74,7 @@ def get_engine(
     config: ConfigType,
     discovery_info: DiscoveryInfoType | None = None,
 ) -> Provider | None:
+        # pylint: disable=W0612,W0613 #Argumente sind von Home Assitant vorgegeben
     """Set up Amazon Polly speech component."""
     output_format = config[CONF_OUTPUT_FORMAT]
     sample_rate = config.get(CONF_SAMPLE_RATE, DEFAULT_SAMPLE_RATES[output_format])
@@ -90,11 +91,12 @@ def get_engine(
     if profile is not None:
         boto3.setup_default_session(profile_name=profile)
 
+
     aws_config = {
         CONF_REGION: config[CONF_REGION],
         CONF_ACCESS_KEY_ID: config.get(CONF_ACCESS_KEY_ID),
         CONF_SECRET_ACCESS_KEY: config.get(CONF_SECRET_ACCESS_KEY),
-        "config": botocore.config.Config(
+        "config": botocore.client.Config(
             connect_timeout=AWS_CONF_CONNECT_TIMEOUT,
             read_timeout=AWS_CONF_READ_TIMEOUT,
             max_pool_connections=AWS_CONF_MAX_POOL_CONNECTIONS,
