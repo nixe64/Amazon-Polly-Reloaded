@@ -6,42 +6,24 @@ import typing
 
 import boto3
 import botocore
-import voluptuous as vol
-
-from homeassistant.components import tts
 import homeassistant.const as ha_const
 import homeassistant.core as ha_core
 import homeassistant.helpers.config_validation as cv
 import homeassistant.helpers.typing as ha_typing
+import voluptuous as vol
+from homeassistant.components import tts
 
-from .const import (
-    AWS_CONF_CONNECT_TIMEOUT,
-    AWS_CONF_MAX_POOL_CONNECTIONS,
-    AWS_CONF_READ_TIMEOUT,
-    CONF_ACCESS_KEY_ID,
-    CONF_CONFIG,
-    CONF_ENGINE,
-    CONF_OUTPUT_FORMAT,
-    CONF_REGION,
-    CONF_SAMPLE_RATE,
-    CONF_SECRET_ACCESS_KEY,
-    CONF_TEXT_TYPE,
-    CONF_VOICE,
-    CONTENT_TYPE_EXTENSIONS,
-    DEFAULT_ENGINE,
-    DEFAULT_OUTPUT_FORMAT,
-    DEFAULT_REGION,
-    DEFAULT_SAMPLE_RATES,
-    DEFAULT_TEXT_TYPE,
-    DEFAULT_VOICE,
-    SUPPORTED_ENGINES,
-    SUPPORTED_OUTPUT_FORMATS,
-    SUPPORTED_REGIONS,
-    SUPPORTED_SAMPLE_RATES,
-    SUPPORTED_SAMPLE_RATES_MAP,
-    SUPPORTED_TEXT_TYPES,
-    SUPPORTED_VOICES,
-)
+from .const import (AWS_CONF_CONNECT_TIMEOUT, AWS_CONF_MAX_POOL_CONNECTIONS,
+                    AWS_CONF_READ_TIMEOUT, CONF_ACCESS_KEY_ID, CONF_CONFIG,
+                    CONF_ENGINE, CONF_OUTPUT_FORMAT, CONF_REGION,
+                    CONF_SAMPLE_RATE, CONF_SECRET_ACCESS_KEY, CONF_TEXT_TYPE,
+                    CONF_VOICE, CONTENT_TYPE_EXTENSIONS, DEFAULT_ENGINE,
+                    DEFAULT_OUTPUT_FORMAT, DEFAULT_REGION,
+                    DEFAULT_SAMPLE_RATES, DEFAULT_TEXT_TYPE, DEFAULT_VOICE,
+                    SUPPORTED_ENGINES, SUPPORTED_OUTPUT_FORMATS,
+                    SUPPORTED_REGIONS, SUPPORTED_SAMPLE_RATES,
+                    SUPPORTED_SAMPLE_RATES_MAP, SUPPORTED_TEXT_TYPES,
+                    SUPPORTED_VOICES)
 
 _LOGGER: typing.Final = logging.getLogger(__name__)
 
@@ -158,7 +140,13 @@ class AmazonPollyProvider(tts.Provider):
     @property
     def supported_options(self) -> list[str]:
         """Return a list of supported options."""
-        return [CONF_VOICE]
+        return [
+            CONF_VOICE,
+            CONF_ENGINE,
+            CONF_OUTPUT_FORMAT,
+            CONF_SAMPLE_RATE,
+            CONF_TEXT_TYPE,
+        ]
 
     def get_tts_audio(
         self,
