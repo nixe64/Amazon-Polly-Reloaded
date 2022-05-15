@@ -4,7 +4,7 @@
         {
             "label": "Release bereitstellen",
             "type": "shell",
-            "command": "scp -r ${workspaceFolder}/amazon_polly  homeassistant@smart-home:develop/home-assistant/amazon_polly"
+            "command": "scp -r ${workspaceFolder}/custom_components/  homeassistant@smart-home:develop/home-assistant/"
         }
     ]
 }

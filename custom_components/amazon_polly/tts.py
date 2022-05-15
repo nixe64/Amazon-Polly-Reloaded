@@ -61,6 +61,7 @@ def get_engine(
     if bool(profile):
         boto3.setup_default_session(profile_name=profile)
 
+
     aws_config = {
         CONF_REGION: config[CONF_REGION],
         CONF_ACCESS_KEY_ID: config.get(CONF_ACCESS_KEY_ID),
