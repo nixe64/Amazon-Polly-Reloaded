@@ -4,7 +4,6 @@ import typing
 CONF_REGION: typing.Final = "region_name"
 CONF_ACCESS_KEY_ID: typing.Final = "aws_access_key_id"
 CONF_SECRET_ACCESS_KEY: typing.Final = "aws_secret_access_key"
-DOMAIN: typing.Final = "amazon_polly"
 
 DEFAULT_REGION: typing.Final = "us-east-1"
 SUPPORTED_REGIONS: typing.Final[list[str]] = [
@@ -130,6 +129,7 @@ DEFAULT_SAMPLE_RATES: typing.Final[dict[str, str]] = {
     "pcm": "16000",
 }
 
+CONF_CONFIG: typing.Final = "config"
 AWS_CONF_CONNECT_TIMEOUT: typing.Final = 10
 AWS_CONF_READ_TIMEOUT: typing.Final = 5
 AWS_CONF_MAX_POOL_CONNECTIONS: typing.Final = 1
