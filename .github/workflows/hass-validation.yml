@@ -1,5 +1,5 @@
 name: hassfest
-on: [push, release]
+on: [push]
 
 jobs:
   hassfest:
