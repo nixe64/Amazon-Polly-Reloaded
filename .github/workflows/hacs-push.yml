@@ -9,4 +9,5 @@ jobs:
         - uses: "hacs/action@main"
           with:
             categorie: integration
+            ignore: archived
             
