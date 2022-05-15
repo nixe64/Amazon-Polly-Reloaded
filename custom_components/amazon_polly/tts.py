@@ -6,42 +6,24 @@ import typing
 
 import boto3
 import botocore
-import voluptuous as vol
-
-from homeassistant.components import tts
 import homeassistant.const as ha_const
 import homeassistant.core as ha_core
 import homeassistant.helpers.config_validation as cv
 import homeassistant.helpers.typing as ha_typing
+import voluptuous as vol
+from homeassistant.components import tts
 
-from .const import (
-    AWS_CONF_CONNECT_TIMEOUT,
-    AWS_CONF_MAX_POOL_CONNECTIONS,
-    AWS_CONF_READ_TIMEOUT,
-    CONF_ACCESS_KEY_ID,
-    CONF_CONFIG,
-    CONF_ENGINE,
-    CONF_OUTPUT_FORMAT,
-    CONF_REGION,
-    CONF_SAMPLE_RATE,
-    CONF_SECRET_ACCESS_KEY,
-    CONF_TEXT_TYPE,
-    CONF_VOICE,
-    CONTENT_TYPE_EXTENSIONS,
-    DEFAULT_ENGINE,
-    DEFAULT_OUTPUT_FORMAT,
-    DEFAULT_REGION,
-    DEFAULT_SAMPLE_RATES,
-    DEFAULT_TEXT_TYPE,
-    DEFAULT_VOICE,
-    SUPPORTED_ENGINES,
-    SUPPORTED_OUTPUT_FORMATS,
-    SUPPORTED_REGIONS,
-    SUPPORTED_SAMPLE_RATES,
-    SUPPORTED_SAMPLE_RATES_MAP,
-    SUPPORTED_TEXT_TYPES,
-    SUPPORTED_VOICES,
-)
+from .const import (AWS_CONF_CONNECT_TIMEOUT, AWS_CONF_MAX_POOL_CONNECTIONS,
+                    AWS_CONF_READ_TIMEOUT, CONF_ACCESS_KEY_ID, CONF_CONFIG,
+                    CONF_ENGINE, CONF_OUTPUT_FORMAT, CONF_REGION,
+                    CONF_SAMPLE_RATE, CONF_SECRET_ACCESS_KEY, CONF_TEXT_TYPE,
+                    CONF_VOICE, CONTENT_TYPE_EXTENSIONS, DEFAULT_ENGINE,
+                    DEFAULT_OUTPUT_FORMAT, DEFAULT_REGION,
+                    DEFAULT_SAMPLE_RATES, DEFAULT_TEXT_TYPE, DEFAULT_VOICE,
+                    SUPPORTED_ENGINES, SUPPORTED_OUTPUT_FORMATS,
+                    SUPPORTED_REGIONS, SUPPORTED_SAMPLE_RATES,
+                    SUPPORTED_SAMPLE_RATES_MAP, SUPPORTED_TEXT_TYPES,
+                    SUPPORTED_VOICES)
 
 _LOGGER: typing.Final = logging.getLogger(__name__)
 
@@ -94,7 +76,7 @@ def get_engine(
         CONF_CONFIG: botocore.client.Config(
             connect_timeout=AWS_CONF_CONNECT_TIMEOUT,
             read_timeout=AWS_CONF_READ_TIMEOUT,
-            max_pool_connection=AWS_CONF_MAX_POOL_CONNECTIONS,
+            max_pool_connections=AWS_CONF_MAX_POOL_CONNECTIONS,
         ),
     }
 
@@ -158,7 +140,13 @@ class AmazonPollyProvider(tts.Provider):
     @property
     def supported_options(self) -> list[str]:
         """Return a list of supported options."""
-        return [CONF_VOICE]
+        return [
+            CONF_VOICE,
+            CONF_ENGINE,
+            CONF_OUTPUT_FORMAT,
+            CONF_SAMPLE_RATE,
+            CONF_TEXT_TYPE,
+        ]
 
     def get_tts_audio(
         self,
@@ -176,13 +164,26 @@ class AmazonPollyProvider(tts.Provider):
             _LOGGER.error("%s does not support the %s language", voice_id, language)
             return None, None
 
+        engine = options.get(CONF_ENGINE, None)
+        output_format = options.get(CONF_OUTPUT_FORMAT, None)
+        sample_rate = options.get(CONF_SAMPLE_RATE, None)
+        text_type = options.get(CONF_TEXT_TYPE, None)
+        if not bool(engine):
+            engine = self.config[CONF_ENGINE]
+        if not bool(output_format):
+            output_format = self.config[CONF_OUTPUT_FORMAT]
+        if not bool(sample_rate):
+            sample_rate = self.config[CONF_SAMPLE_RATE]
+        if not bool(text_type):
+            text_type = self.config[CONF_TEXT_TYPE]
+
         _LOGGER.debug("Requesting TTS file for text: %s", message)
         resp = self.client.synthesize_speech(
-            Engine=self.config[CONF_ENGINE],
-            OutputFormat=self.config[CONF_OUTPUT_FORMAT],
-            SampleRate=self.config[CONF_SAMPLE_RATE],
+            Engine=engine,
+            OutputFormat=output_format,
+            SampleRate=sample_rate,
             Text=message,
-            TextType=self.config[CONF_TEXT_TYPE],
+            TextType=text_type,
             VoiceId=voice_id,
         )
 
