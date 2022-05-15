@@ -1,0 +1,12 @@
+name: HACS
+on: [push]
+
+jobs:
+  hacs:
+    runs-on: "ubuntu-latest"
+    steps:
+        - uses: "actions/checkout@v3"
+        - uses: "hacs/action@main"
+          with:
+            categorie: integration
+            
