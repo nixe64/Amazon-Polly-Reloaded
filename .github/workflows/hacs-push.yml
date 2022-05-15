@@ -1,0 +1,13 @@
+name: HACS - Prepare Release
+on: [push]
+
+jobs:
+  hacs:
+    runs-on: "ubuntu-latest"
+    steps:
+        - uses: "actions/checkout@v3"
+        - uses: "hacs/action@main"
+          with:
+            category: integration
+            ignore: archived
+            

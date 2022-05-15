@@ -1,0 +1,10 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Release bereitstellen",
+            "type": "shell",
+            "command": "scp -r ${workspaceFolder}/custom_components/  homeassistant@smart-home:develop/home-assistant/"
+        }
+    ]
+}

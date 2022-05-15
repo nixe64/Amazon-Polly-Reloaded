@@ -1,9 +1,9 @@
-name: Home Assistant Validation
+name: hassfest
 on: [push]
 
 jobs:
-  hacs-validate:
-    # uses: hacs/action@21.12.1
-    uses: ./.github/workflows/hacs-action.yml
-    with:
-      category: integration
+  hassfest:
+    runs-on: "ubuntu-latest"
+    steps:
+        - uses: "actions/checkout@v3"
+        - uses: "home-assistant/actions/hassfest@master"  
