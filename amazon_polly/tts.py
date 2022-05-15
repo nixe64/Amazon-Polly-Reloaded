@@ -1,9 +1,9 @@
 """Support for the Amazon Polly text to speech service."""
-
 import logging
 import typing
 
 import boto3
+import botocore
 import voluptuous as vol
 import homeassistant.components.tts as tts
 import homeassistant.const as ha_const
@@ -16,9 +16,9 @@ from .const import * # pylint: disable=W0401
 # Wenn python den lokalen import zulassen würde bräuchte man das aus nicht
 
 
-_LOGGER: typing.Final = logging.getLogger("custom_component." + DOMAIN + ".tts")
+_LOGGER: typing.Final = logging.getLogger(__name__)
 
-PLATFORM_SCHEMA: Final = tts.PLATFORM_SCHEMA.extend(
+PLATFORM_SCHEMA: typing.Final = tts.PLATFORM_SCHEMA.extend(
     {
         vol.Optional(CONF_REGION, default=DEFAULT_REGION): vol.In(SUPPORTED_REGIONS),
         vol.Inclusive(CONF_ACCESS_KEY_ID, ha_const.ATTR_CREDENTIALS): cv.string,
@@ -42,8 +42,8 @@ PLATFORM_SCHEMA: Final = tts.PLATFORM_SCHEMA.extend(
 def get_engine(
     hass: ha_core.HomeAssistant,
     config: ha_typing.ConfigType,
-    discovery_info: ha_typing.DiscoveryInfoType.union(None) = None,
-) -> tts.Provider.union(None):
+    discovery_info: typing.Type[ha_typing.DiscoveryInfoType].union(None) = None,
+) -> typing.Type[tts.Provider].union(None):
         # pylint: disable=W0612,W0613 #Argumente sind von Home Assitant vorgegeben
     """Set up Amazon Polly speech component."""
     output_format = config[CONF_OUTPUT_FORMAT]
@@ -56,7 +56,7 @@ def get_engine(
 
     config[CONF_SAMPLE_RATE] = sample_rate
 
-    profile: str.union(None) = config.get(ha_const.CONF_PROFILE_NAME)
+    profile: typing.Type[str].union(None) = config.get(ha_const.CONF_PROFILE_NAME)
 
     if bool(profile):
         boto3.setup_default_session(profile_name=profile)
@@ -65,11 +65,11 @@ def get_engine(
         CONF_REGION: config[CONF_REGION],
         CONF_ACCESS_KEY_ID: config.get(CONF_ACCESS_KEY_ID),
         CONF_SECRET_ACCESS_KEY: config.get(CONF_SECRET_ACCESS_KEY),
-        "config": boto3.client.Config(
-            connect_timeout=AWS_CONF_CONNECT_TIMEOUT,
-            read_timeout=AWS_CONF_READ_TIMEOUT,
-            max_pool_connections=AWS_CONF_MAX_POOL_CONNECTIONS,
-        ),
+        CONF_CONFIG: botocore.client.Config(
+            connect_timeout = AWS_CONF_CONNECT_TIMEOUT,
+            read_timeut = AWS_CONF_READ_TIMEOUT,
+            max_pool_connection = AWS_CONF_MAX_POOL_CONNECTIONS
+        )
     }
 
     del config[CONF_REGION]
@@ -85,11 +85,11 @@ def get_engine(
     all_voices_req = polly_client.describe_voices()
 
     for voice in all_voices_req.get("Voices", []):
-        voice_id: str.union(None) = voice.get("Id")
+        voice_id: typing.Type[str].union(None) = voice.get("Id")
         if voice_id is None:
             continue
         all_voices[voice_id] = voice
-        language_code: str.union(None) = voice.get("LanguageCode")
+        language_code: typing.Type[str].union(None) = voice.get("LanguageCode")
         if bool(language_code) and language_code not in supported_languages:
             supported_languages.append(language_code)
 
@@ -120,7 +120,7 @@ class AmazonPollyProvider(tts.Provider):
         return self.supported_langs
 
     @property
-    def default_language(self) -> str.union(None):
+    def default_language(self) -> typing.Type[str].union(None):
         """Return the default language."""
         return self.all_voices.get(self.default_voice, {}).get("LanguageCode")
 
@@ -137,8 +137,8 @@ class AmazonPollyProvider(tts.Provider):
     def get_tts_audio(
         self,
         message: str,
-        language: str.union(None) = None,
-        options: dict[str, str].union(None) = None,
+        language: typing.Type[str].union(None) = None,
+        options: typing.Type[dict[str, str]].union(None) = None,
     ) -> tts.TtsAudioType:
         """Request TTS file from Polly."""
         if options is None or language is None:
