@@ -12,3 +12,8 @@ This integration can be downloaded and installed through the [Home Assistant Com
 
 # Configuration
 All configuration variables can be found in the documentation of original [Amazon Polly Integration](https://www.home-assistant.io/integrations/amazon_polly/) of [Home Assistant](https://www.home-assistant.io/).
+
+#
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
+[![HACS](https://github.com/andreas-nixdorf-de/amazon_polly/actions/workflows/hacs-release.yml/badge.svg)](https://github.com/andreas-nixdorf-de/amazon_polly/actions/workflows/hacs-release.yml)
+[![hassfest](https://github.com/andreas-nixdorf-de/amazon_polly/actions/workflows/hass-validation.yml/badge.svg)](https://github.com/andreas-nixdorf-de/amazon_polly/actions/workflows/hass-validation.yml)
