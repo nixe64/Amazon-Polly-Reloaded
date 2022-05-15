@@ -8,5 +8,6 @@ This integration extents the [Amazon Polly Integration](https://www.home-assista
 It allows the use of all configuration variables of the original Amazon Polly Integration in the Options field of the service call (e.g. amazon_polly_say). For security reasons the **aws_access_key_id** and **aws_secret_access_key** are excluded.
 
 #
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://github.com/hacs/integration)
 [![hassfest](https://github.com/andreas-nixdorf-de/amazon_polly/actions/workflows/hass-validation.yml/badge.svg)](https://github.com/andreas-nixdorf-de/amazon_polly/actions/workflows/hass-validation.yml)
 [![hassfest](https://github.com/andreas-nixdorf-de/amazon_polly/actions/workflows/hass-validation.yml/badge.svg)](https://github.com/andreas-nixdorf-de/amazon_polly/actions/workflows/hass-validation.yml)
