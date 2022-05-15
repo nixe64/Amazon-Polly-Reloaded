@@ -1,9 +1,9 @@
-name: hassfest
+name: HACS
 on: [push, release]
 
 jobs:
-  hassfest:
+  hacs:
     runs-on: "ubuntu-latest"
     steps:
         - uses: "actions/checkout@v3"
-        - uses: "home-assistant/actions/hassfest@master"  
+        - uses: "hacs/action@main"  
