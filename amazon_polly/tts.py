@@ -1,5 +1,4 @@
 """Support for the Amazon Polly text to speech service."""
-
 import logging
 import typing
 
@@ -16,9 +15,9 @@ from .const import * # pylint: disable=W0401
 # Wenn python den lokalen import zulassen würde bräuchte man das aus nicht
 
 
-_LOGGER: typing.Final = logging.getLogger("custom_component." + DOMAIN + ".tts")
+_LOGGER: typing.Final = logging.getLogger(__name__)
 
-PLATFORM_SCHEMA: Final = tts.PLATFORM_SCHEMA.extend(
+PLATFORM_SCHEMA: typing.Final = tts.PLATFORM_SCHEMA.extend(
     {
         vol.Optional(CONF_REGION, default=DEFAULT_REGION): vol.In(SUPPORTED_REGIONS),
         vol.Inclusive(CONF_ACCESS_KEY_ID, ha_const.ATTR_CREDENTIALS): cv.string,
@@ -42,7 +41,7 @@ PLATFORM_SCHEMA: Final = tts.PLATFORM_SCHEMA.extend(
 def get_engine(
     hass: ha_core.HomeAssistant,
     config: ha_typing.ConfigType,
-    discovery_info: ha_typing.DiscoveryInfoType.union(None) = None,
+    discovery_info: typing.Type[ha_typing.DiscoveryInfoType].union(None) = None,
 ) -> tts.Provider.union(None):
         # pylint: disable=W0612,W0613 #Argumente sind von Home Assitant vorgegeben
     """Set up Amazon Polly speech component."""
