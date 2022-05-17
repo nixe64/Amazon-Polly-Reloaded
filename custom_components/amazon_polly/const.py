@@ -1,6 +1,8 @@
 """Constants for the Amazon Polly text to speech service."""
 import typing
 
+import homeassistant.helpers.intent as ha_intent
+
 CONF_REGION: typing.Final = "region_name"
 CONF_ACCESS_KEY_ID: typing.Final = "aws_access_key_id"
 CONF_SECRET_ACCESS_KEY: typing.Final = "aws_secret_access_key"
@@ -28,7 +30,7 @@ CONF_ENGINE: typing.Final = "engine"
 CONF_VOICE: typing.Final = "voice"
 CONF_OUTPUT_FORMAT: typing.Final = "output_format"
 CONF_SAMPLE_RATE: typing.Final = "sample_rate"
-CONF_TEXT_TYPE: typing.Final = "text_type"
+CONF_SPEECH_TYPE: typing.Final = "text_type"
 
 SUPPORTED_VOICES: typing.Final[list[str]] = [
     "Aditi",  # Hindi
@@ -110,7 +112,10 @@ SUPPORTED_SAMPLE_RATES_MAP: typing.Final[dict[str, list[str]]] = {
     "pcm": ["8000", "16000"],
 }
 
-SUPPORTED_TEXT_TYPES: typing.Final[list[str]] = ["text", "ssml"]
+SUPPORTED_SPEECH_TYPES: typing.Final[list[str]] = [
+    ha_intent.SPEECH_TYPE_PLAIN,
+    ha_intent.SPEECH_TYPE_SSML,
+]
 
 CONTENT_TYPE_EXTENSIONS: typing.Final[dict[str, str]] = {
     "audio/mpeg": "mp3",
@@ -121,7 +126,7 @@ CONTENT_TYPE_EXTENSIONS: typing.Final[dict[str, str]] = {
 DEFAULT_ENGINE: typing.Final = "standard"
 DEFAULT_VOICE: typing.Final = "Joanna"
 DEFAULT_OUTPUT_FORMAT: typing.Final = "mp3"
-DEFAULT_TEXT_TYPE: typing.Final = "text"
+DEFAULT_SPEECH_TYPE: typing.Final = ha_intent.SPEECH_TYPE_PLAIN
 
 DEFAULT_SAMPLE_RATES: typing.Final[dict[str, str]] = {
     "mp3": "22050",

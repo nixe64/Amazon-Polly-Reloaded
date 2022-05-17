@@ -1,10 +1,142 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Release bereitstellen",
-            "type": "shell",
-            "command": "scp -r ${workspaceFolder}/custom_components/  homeassistant@smart-home:develop/home-assistant/"
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "auf Entwicklungserver bereitstellen",
+      "type": "shell",
+      "command": "scp -r ${workspaceFolder}/custom_components/  homeassistant@smart-home:develop/home-assistant/",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Mit Black formatieren",
+      "type": "shell",
+      "command": "${config:python.venvPath}/3.9/bin/black ${workspaceFolder}/custom_components/",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Pre-Commit Tests ausführen",
+      "type": "shell",
+      "command": "${config:python.venvPath}/3.9/bin/pre-commit run",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Mit Bandit überprüfen",
+      "type": "shell",
+      "command": "${config:python.venvPath}/3.9/bin/bandit custom_components",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Mit Codespell überprüfen",
+      "type": "shell",
+      "command": "${config:python.venvPath}/3.9/bin/codespell custom_components/",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Mit Flake8 überprüfen",
+      "type": "shell",
+      "command": "${config:python.venvPath}/3.9/bin/flake8 --ignore E501 custom_components/",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Mit Mypy überprüfen",
+      "type": "shell",
+      "command": "${config:python.venvPath}/3.9/bin/mypy --ignore-missing-imports custom_components",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Mit Isort überprüfen",
+      "type": "shell",
+      "command": "${config:python.venvPath}/3.9/bin/isort custom_components/",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Mit Mypy überprüfen",
+      "type": "shell",
+      "command": "${config:python.venvPath}/3.9/bin/mypy --ignore-missing-imports custom_components",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Mit Pylint überprüfen",
+      "type": "shell",
+      "command": "${config:python.venvPath}/3.9/bin/pylint custom_components/",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    }
+  ]
 }

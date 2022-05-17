@@ -16,13 +16,13 @@ from homeassistant.components import tts
 from .const import (AWS_CONF_CONNECT_TIMEOUT, AWS_CONF_MAX_POOL_CONNECTIONS,
                     AWS_CONF_READ_TIMEOUT, CONF_ACCESS_KEY_ID, CONF_CONFIG,
                     CONF_ENGINE, CONF_OUTPUT_FORMAT, CONF_REGION,
-                    CONF_SAMPLE_RATE, CONF_SECRET_ACCESS_KEY, CONF_TEXT_TYPE,
+                    CONF_SAMPLE_RATE, CONF_SECRET_ACCESS_KEY, CONF_SPEECH_TYPE,
                     CONF_VOICE, CONTENT_TYPE_EXTENSIONS, DEFAULT_ENGINE,
                     DEFAULT_OUTPUT_FORMAT, DEFAULT_REGION,
-                    DEFAULT_SAMPLE_RATES, DEFAULT_TEXT_TYPE, DEFAULT_VOICE,
+                    DEFAULT_SAMPLE_RATES, DEFAULT_SPEECH_TYPE, DEFAULT_VOICE,
                     SUPPORTED_ENGINES, SUPPORTED_OUTPUT_FORMATS,
                     SUPPORTED_REGIONS, SUPPORTED_SAMPLE_RATES,
-                    SUPPORTED_SAMPLE_RATES_MAP, SUPPORTED_TEXT_TYPES,
+                    SUPPORTED_SAMPLE_RATES_MAP, SUPPORTED_SPEECH_TYPES,
                     SUPPORTED_VOICES)
 
 _LOGGER: typing.Final = logging.getLogger(__name__)
@@ -41,8 +41,8 @@ PLATFORM_SCHEMA: typing.Final = tts.PLATFORM_SCHEMA.extend(
         vol.Optional(CONF_SAMPLE_RATE): vol.All(
             cv.string, vol.In(SUPPORTED_SAMPLE_RATES)
         ),
-        vol.Optional(CONF_TEXT_TYPE, default=DEFAULT_TEXT_TYPE): vol.In(
-            SUPPORTED_TEXT_TYPES
+        vol.Optional(CONF_SPEECH_TYPE, default=DEFAULT_SPEECH_TYPE): vol.In(
+            SUPPORTED_SPEECH_TYPES
         ),
     }
 )
@@ -53,6 +53,9 @@ def get_engine(
     config: ha_typing.ConfigType,
     discovery_info: ha_typing.DiscoveryInfoType | None = None,
 ) -> tts.Provider | None:
+
+    # pylint: disable=unused-argument
+
     """Set up Amazon Polly speech component."""
     output_format = config[CONF_OUTPUT_FORMAT]
     sample_rate = config.get(CONF_SAMPLE_RATE, DEFAULT_SAMPLE_RATES[output_format])
@@ -145,7 +148,7 @@ class AmazonPollyProvider(tts.Provider):
             CONF_ENGINE,
             CONF_OUTPUT_FORMAT,
             CONF_SAMPLE_RATE,
-            CONF_TEXT_TYPE,
+            CONF_SPEECH_TYPE,
         ]
 
     def get_tts_audio(
@@ -167,7 +170,7 @@ class AmazonPollyProvider(tts.Provider):
         engine = options.get(CONF_ENGINE, None)
         output_format = options.get(CONF_OUTPUT_FORMAT, None)
         sample_rate = options.get(CONF_SAMPLE_RATE, None)
-        text_type = options.get(CONF_TEXT_TYPE, None)
+        text_type = options.get(CONF_SPEECH_TYPE, None)
         if not bool(engine):
             engine = self.config[CONF_ENGINE]
         if not bool(output_format):
@@ -175,7 +178,7 @@ class AmazonPollyProvider(tts.Provider):
         if not bool(sample_rate):
             sample_rate = self.config[CONF_SAMPLE_RATE]
         if not bool(text_type):
-            text_type = self.config[CONF_TEXT_TYPE]
+            text_type = self.config[CONF_SPEECH_TYPE]
 
         _LOGGER.debug("Requesting TTS file for text: %s", message)
         resp = self.client.synthesize_speech(
