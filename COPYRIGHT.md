@@ -23,7 +23,7 @@ sogar ohne die implizite Garantie der **Marktreife** oder der
 der GPL.
 
 Sie sollten ein Exemplar der Allgemeinen Öffentlichen GNU-Lizenz zusammen
-mit diesem Programm erhalten haben. Falls nicht, siehe [http://www.gnu.org/licenses/}(http://www.gnu.org/licenses/).
+mit diesem Programm erhalten haben. Falls nicht, siehe [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
 
 <br/>
 
