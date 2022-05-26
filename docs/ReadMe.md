@@ -24,6 +24,9 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
+[![hacs-badge](images/hacs-badge.svg)](https://github.com/hacs/integration)
+
 <p>
 <img src="https://img.shields.io/github/license/nixe64/.github?label=Lizenz&style=plastic" alt="Lizenz" />
 <img src="https://img.shields.io/github/v/release/nixe64/.github?label=Version&style=plastic" alt="Version" />
