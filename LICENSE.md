@@ -2,7 +2,7 @@
 <details>
 <summary>🇩🇪</summary>
     🇩🇪 deutsch<br/>
-    <a href="COPYRIGHT.en.md">🇬🇧 english</a>
+    <a href="LICENSE.en.md">🇬🇧 english</a>
 </details>
 </div>
 
