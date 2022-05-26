@@ -6,7 +6,7 @@
 </details>
 </div>
 
-### Amazon Polly für Home Assistant Reloaded
+### Amazon Polly Reloaded
 
 Copyright © 2022, Andreas Nixdorf.
 
@@ -44,8 +44,8 @@ Sollten der o.a. Gewährleistungsausschluß und die o.a. Haftungsbegrenzung aufg
 
 ### Urheberrechtslizenzen
 
-This project is a derivative of the Home Assistant integration “Amazon Polly”.
+Dieses Projekt ist eine Weiterentwicklung der Home Assistant Integration “Amazon Polly”.
 
 [Amazon Polly](https://www.home-assistant.io/integrations/amazon_polly/)<br/>
 Copyright © home-assistant.io<br/>
-Distributed with copyright under the [Apache 2.0](docs/License.apache.md) license.
+Veröffentlicht mit Urheberrecht gemäß der [Apache Lizenz Version 2.0](docs/License.apache.md).

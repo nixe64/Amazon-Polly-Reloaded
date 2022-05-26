@@ -6,16 +6,23 @@
 </details>
 </div>
 
-### Amazon Polly for Home Assistant Reloaded
+### Amazon Polly Reloaded
 
 Copyright © 2022, Andreas Nixdorf.
 
-This template is free software: you can redistribute it and/or modify it under the terms of the [GNU General Public License](LICENSE.en.md) as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This program is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation, either version 3 of
+the License, or (at your option) any later version.
 
-This template is distributed in the hope that it will be useful, but **without any warranty**; without even the implied warranty of **merchantability** or **fitness for a particular purpose**. See the GNU General Public License for more details.
+This program is distributed in the hope that it will be useful,
+but **without any warranty**; without even the implied warranty of
+**merchantability** or **fitness for a particular purpose**.  See the GNU
+General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with this template. If not, see [http://www.gnu.org/licenses](http://www.gnu.org/licenses/)/>
-
+You should have received a copy of the GNU General Public
+License along with this program.  If not, see 
+[http://www.gnu.org/licenses](http://www.gnu.org/licenses/).
 <br/>
 
 ### The most important licensing terms in a nutshell
@@ -41,9 +48,8 @@ liability accompanies a copy of the Program in return for a fee.
 
 ### Copyrights
 
-This project is based on a great open source project that was a great help to implement
-my ideas.
+This project is a derivative of the Home Assistant integration “Amazon Polly”.
 
-[Best-README-Template](https://github.com/othneildrew/Best-README-Template)<br/>
-Copyright © 2021 Othneil Drew<br/>
-Distributed with [MIT](docs/License.mit.en.md) Copyright.
+[Amazon Polly](https://www.home-assistant.io/integrations/amazon_polly/)<br/>
+Copyright © home-assistant.io<br/>
+Distributed with copyright under the [Apache license version 2.0](docs/License.apache.md).

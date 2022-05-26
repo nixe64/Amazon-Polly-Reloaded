@@ -18,27 +18,20 @@
 
 
 <br />
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
-  <h3 align="center">Best-README-Template</h3>
+## Amazon Polly Reloaded
 
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><Explore the docs</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
-</div>
+<br/>
 
+[![Logo](images/amazon-polly.svg)](https://aws.amazon.com/de/polly/)
 
+<br/>
+
+Derivative of the Home Assistant Integration "Amazon Polly".
+
+<br/>
+
+<!--
 ## About The Project
 
 <p align="center">

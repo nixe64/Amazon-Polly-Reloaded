@@ -17,27 +17,20 @@
 -->
 
 <br />
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
-  <h3 align="center">Die beste ReadMe-Vorlage</h3>
+## Amazon Polly Reloaded
 
-  <p align="center">
-    Eine fantastische ReadMe-Vorlage, um deine Projekte zu starten!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">Durchsuche die Dokumentation</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template">Demo ansehen</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Fehler melden</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">zusätzlich Funktionalität anfordern</a>
-  </p>
-</div>
+<br/>
 
-<!-- ABOUT THE PROJECT -->
+[![Logo](images/amazon-polly.svg)](https://aws.amazon.com/de/polly/)
+
+<br/>
+
+Weiterentwicklung der Home Assistant Integration "Amazon Polly".
+
+<br/>
+
+<!--
 ## Über das Projekt
 
 <p align="center">
@@ -50,8 +43,6 @@ Weiterentwicklung der Home Assistant Integration "Amazon Polly".
 
 in der Entwicklungsphase
 
-<!-- GETTING STARTED -->
-<!-->
 ## Einstieg
 
 Um diese Vorlage für deine eigenen Projekte zu verwenden, nutze einfach den "Use this template"-
@@ -101,9 +92,9 @@ Mitwirkungen machen die Open-Source-Community zu einem so großartigen Ort zum L
 Bei Interesse, lies bitte [Mitwirkung an meinen Projekten](contributing/Contribute.md) und den [Verhaltenskodex für Mitwirkende](contributing/CodeOfConduct.md).
  -->
 
-## Lizenz
+### Lizenz
 
-Lizensiert unter der [Allgemeinen Öffentlichen GNU-Lizenz v3.0](../LICENSE.md).
+Lizensiert gemäß der [Allgemeinen Öffentlichen GNU-Lizenz v3.0](../LICENSE.md).
 
 <!--
 ## Kontakt
