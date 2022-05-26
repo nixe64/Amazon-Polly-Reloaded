@@ -3,7 +3,7 @@
 <details>
 <summary>🇩🇪</summary>
     🇩🇪 deutsch<br/>
-    <a href="LICENSE.en.md">🇬🇧 english</a>
+    <a href="License.gpl.en.md">🇬🇧 english</a>
 </details>
 </div>
 
