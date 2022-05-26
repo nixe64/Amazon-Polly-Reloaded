@@ -1,7 +1,7 @@
 <div align="right">
 <details>
 <summary>🇬🇧</summary>
-    <a href="COPYRIGHT.md">🇩🇪 deutsch</a><br/>
+    <a href="LICENSE.md">🇩🇪 deutsch</a><br/>
     🇬🇧 english
 </details>
 </div>
