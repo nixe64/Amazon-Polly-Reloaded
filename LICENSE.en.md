@@ -1,8 +1,8 @@
-  <a href="https://opensource.org/licenses/GPL-3.0/"><img alt="OSI Approved License Logo" hspace="20" src="images/osi-approved-license.png" align="right" width="150" /></a>
+  <a href="https://opensource.org/licenses/GPL-3.0/"><img alt="OSI Approved License Logo" hspace="20" src="docs/images/osi-approved-license.png" align="right" width="150" /></a>
 <div align="right">
 <details>
 <summary>🇬🇧</summary>
-    <a href="License.md">🇩🇪 deutsch</a><br/>
+    <a href="LICENSE.md">🇩🇪 deutsch</a><br/>
     🇬🇧 english
 </details>
 </div>
@@ -646,13 +646,13 @@ published by the Free Software Foundation, either version 3 of
 the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+but <b>without any warranty</b>; without even the implied warranty of
+<b>merchantability</b> or <b>fitness for a particular purpose</b>.  See the GNU
 General Public License for more details.
 
 You should have received a copy of the GNU General Public
-License along with this program.  If not, see
-http://www.gnu.org/licenses/.
+License along with this program.  If not, see 
+<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
 </pre>
 
 Also add information on how to contact you by electronic and paper

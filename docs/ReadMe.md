@@ -24,9 +24,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-
-[![hacs-badge](images/hacs-badge.svg)](https://github.com/hacs/integration)
-
 <p>
 <img src="https://img.shields.io/github/license/nixe64/.github?label=Lizenz&style=plastic" alt="Lizenz" />
 <img src="https://img.shields.io/github/v/release/nixe64/.github?label=Version&style=plastic" alt="Version" />
@@ -135,7 +132,7 @@ Bei Interesse, lies bitte [Mitwirkung an meinen Projekten](contributing/Contribu
 <!-- LICENSE -->
 ## Lizenz
 
-Lizensiert unter der [Allgemeinen Öffentlichen GNU-Lizenz, Version 3](License.md).
+Lizensiert unter der [Allgemeinen Öffentlichen GNU-Lizenz v3.0](../LICENSE.de.md).
 
 <!-- CONTACT -->
 ## Kontakt

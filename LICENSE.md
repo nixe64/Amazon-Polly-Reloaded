@@ -1,9 +1,9 @@
-<a href="https://opensource.org/licenses/GPL-3.0/"><img alt="OSI Approved License Logo" hspace="20" src="images/osi-approved-license.png" align="right" width="150" /></a>
+<a href="https://opensource.org/licenses/GPL-3.0/"><img alt="OSI Approved License Logo" hspace="20" src="docs/images/osi-approved-license.png" align="right" width="150" /></a>
 <div align="right">
 <details>
 <summary>🇩🇪</summary>
     🇩🇪 deutsch<br/>
-    <a href="License.en.md">🇬🇧 english</a>
+    <a href="LICENSE.en.md">🇬🇧 english</a>
 </details>
 </div>
 
@@ -12,9 +12,9 @@
 **Deutsche Übersetzung der Version 3, 29. Juni 2007**
 
 **Copyright © 2007 Free Software Foundation, Inc.
-[http://fsf.org/](http://fsf.org/)**
+\([http://fsf.org/](http://fsf.org/)\)**
 
-<img src="images/1x1.png" height="50" width="1" />
+<img src="docs/images/1x1.png" height="50" width="1" />
 
 Es ist jedermann gestattet, diese Lizenzurkunde zu vervielfältigen
 und unveränderte Kopien zu verbreiten; Änderungen sind jedoch
@@ -22,7 +22,7 @@ nicht erlaubt.
 
 
 **Diese Übersetzung ist kein rechtskräftiger Ersatz für die
-[englischsprachige Originalversion](License.en.md)!**
+[englischsprachige Originalversion](LICENSE.en.md)!**
 
 <br/>
 
@@ -755,20 +755,20 @@ Auf Deutsch:
 Copyright (C) [<i>Jahr</i>]  [<i>Name des Autors</i>]
 
 Dieses Programm ist freie Software. Sie können es unter den
-Bedingungen der GNU General Public License, wie von der Free
-Software Foundation veröffentlicht, weitergeben und/oder
-modifizieren, entweder gemäß Version 3 der Lizenz oder (nach
-Ihrer Option) jeder späteren Version.
+Bedingungen der Allgemeinen Öffentlichen GNU-Lizenz (GPL), wie
+von der Free Software Foundation veröffentlicht, weitergeben 
+und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder 
+(nach Ihrer Option) jeder späteren Version.
 
 Die Veröffentlichung dieses Programms erfolgt in der Hoffnung,
-daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE,
-sogar ohne die implizite Garantie der MARKTREIFE oder der
-VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in
-der GNU General Public License.
+daß es Ihnen von Nutzen sein wird, aber <b>ohne irgendeine Garantie</b>,
+sogar ohne die implizite Garantie der <b>Marktreife</b> oder der
+<b>Verwendbarkeit für einen bestimmten Zweck</b>. Details finden Sie in
+der GPL.
 
-Sie sollten ein Exemplar der GNU General Public License zusammen
-mit diesem Programm erhalten haben. Falls nicht, siehe
-<http://www.gnu.org/licenses/>.
+Sie sollten ein Exemplar der Allgemeinen Öffentlichen GNU-Lizenz
+zusammen mit diesem Programm erhalten haben. Falls nicht, siehe
+<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses</a>.
 </pre>
 
 Fügen Sie auch einen kurzen Hinweis hinzu, wie Sie elektronisch
